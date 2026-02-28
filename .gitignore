@@ -3,3 +3,6 @@ dist/
 dist-server/
 .DS_Store
 .worktrees/
+*.local
+.env
+.env.*

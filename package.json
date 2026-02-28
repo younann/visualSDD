@@ -1,0 +1,65 @@
+{
+  "name": "visualsdd",
+  "version": "0.1.0",
+  "description": "Visual Spec-Driven Development — Turn markdown specs with Mermaid diagrams into interactive, editable React Flow diagrams",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/younann/visualsdd.git"
+  },
+  "homepage": "https://github.com/younann/visualsdd",
+  "bugs": {
+    "url": "https://github.com/younann/visualsdd/issues"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:ui\"",
+    "dev:ui": "vite",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "tsc && vite build"
+  },
+  "keywords": [
+    "sdd",
+    "spec-driven-development",
+    "mermaid",
+    "react-flow",
+    "diagram",
+    "markdown",
+    "visual-editor",
+    "architecture",
+    "developer-tools"
+  ],
+  "author": "Younan Nwesre (https://github.com/younann)",
+  "license": "MIT",
+  "dependencies": {
+    "@codemirror/lang-markdown": "^6.5.0",
+    "@codemirror/state": "^6.5.4",
+    "@codemirror/theme-one-dark": "^6.1.3",
+    "@codemirror/view": "^6.39.15",
+    "@dagrejs/dagre": "^2.0.4",
+    "@xyflow/react": "^12.10.1",
+    "chokidar": "^5.0.0",
+    "codemirror": "^6.0.2",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "js-yaml": "^4.1.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "ws": "^8.19.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^5.1.4",
+    "autoprefixer": "^10.4.27",
+    "concurrently": "^9.2.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}
