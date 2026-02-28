@@ -27,17 +27,37 @@ SDD workflows produce great specs, but reading Mermaid code blocks isn't the mos
 - **AI Chat Panel** — Placeholder for future AI integration (bring your own LLM)
 - **Dark UI** — Purpose-built dark interface designed for developer workflows
 
+## Installation
+
+```bash
+# Run directly (no install needed)
+npx visualsdd
+
+# Or install globally
+npm install -g visualsdd
+```
+
 ## Quick Start
 
 ```bash
-# Clone the repo
+# Visualize specs in current directory (auto-detects .md files with mermaid blocks)
+npx visualsdd
+
+# Point to a specific directory
+npx visualsdd ./docs/specs
+
+# Use a custom port
+npx visualsdd --port 8080
+```
+
+Your browser opens automatically. The app watches your directory for `.md` file changes in real time.
+
+### Development mode
+
+```bash
 git clone https://github.com/younann/visualsdd.git
 cd visualsdd
-
-# Install dependencies
 npm install
-
-# Start both the server and UI
 npm run dev
 ```
 
@@ -95,6 +115,18 @@ Click **+ New** in the sidebar to create a spec from a template, or create `.md`
 - **Switch diagrams** using the tabs above the canvas
 - **Zoom/pan** with mouse wheel and drag on the canvas background
 
+## Claude Code Integration
+
+VisualSDD includes a `/sdd-visual` slash command for Claude Code. To set it up:
+
+```bash
+# Copy the command file to your project
+mkdir -p .claude/commands
+cp node_modules/visualsdd/commands/sdd-visual.md .claude/commands/
+```
+
+Then in Claude Code, type `/sdd-visual` to scan your project for mermaid diagrams and launch the visual editor.
+
 ## Architecture
 
 ```
@@ -130,6 +162,10 @@ src/App.tsx         ← React UI
 
 ```
 visualsdd/
+├── bin/
+│   └── visualsdd.js          # CLI entry point
+├── commands/
+│   └── sdd-visual.md         # Claude Code slash command (distributable)
 ├── server/
 │   └── index.ts              # Express server + file watcher + WebSocket
 ├── specs/
@@ -167,7 +203,10 @@ visualsdd/
 | `npm run dev` | Start server + UI in development mode |
 | `npm run dev:ui` | Start only the Vite dev server |
 | `npm run dev:server` | Start only the Express server |
-| `npm run build` | Type-check and build for production |
+| `npm run build` | Build UI and server for production |
+| `npm run build:ui` | Build only the React UI |
+| `npm run build:server` | Compile only the server |
+| `npm start` | Run production server (after build) |
 
 ## Roadmap
 

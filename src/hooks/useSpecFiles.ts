@@ -4,7 +4,8 @@ import { parseSpecFile } from '../lib/markdown-parser';
 import type { ParsedSpec, SpecFile } from '../types/spec';
 
 const API_BASE = '/api';
-const WS_URL = `ws://${window.location.hostname}:3001`;
+const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const WS_URL = `${wsProtocol}//${window.location.host}/ws`;
 
 export function useSpecFiles() {
   const [specList, setSpecList] = useState<SpecFile[]>([]);
